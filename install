@@ -1,3 +1,4 @@
+#install dep
 sudo apt update && sudo apt upgrade && sudo apt install -y pkg-config build-essential libudev-dev libssl-dev
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 source "$HOME/.cargo/env"
@@ -15,7 +16,16 @@ cargo install --git https://github.com/coral-xyz/anchor avm --locked --force
 avm install latest
 avm use latest
 
-# https://blog.techchee.com/simple-tutorial-on-solana-rust-smart-contract-with-anchor-framework/
-anchor init my_sol_data
+#setup wallet
+solana config set --url http://api.devnet.solana.com
+solana-keygen new -o ~/dev.json
+solana config set --keypair ~/dev.json
+solana airdrop 2
 
+#Use anchor
+#https://lorisleiva.com/create-a-solana-dapp-from-scratch/getting-started-with-solana-and-anchor
+anchor init solana-twitter
+cd solana-twitter
+anchor build
+anchor deploy
 
