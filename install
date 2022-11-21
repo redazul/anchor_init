@@ -18,8 +18,8 @@ avm use latest
 
 #setup wallet
 solana config set --url http://api.devnet.solana.com
-solana-keygen new -o ~/dev.json
-solana config set --keypair ~/dev.json
+solana-keygen new -o /home/jc/.config/solana/id.json
+solana config set --keypair /home/jc/.config/solana/id.json
 solana airdrop 2
 
 #Use anchor
