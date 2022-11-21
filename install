@@ -8,3 +8,4 @@ npm install --global yarn
 cargo install --git https://github.com/coral-xyz/anchor avm --locked --force
 avm install latest
 avm use latest
+anchor init <project-name>
